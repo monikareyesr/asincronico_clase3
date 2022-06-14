@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Asincronico 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<STYle>
+    body {
+        background-color: bisque;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+        padding: 10px;
+        border: 2px black dashed;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .btn-primary {
+        border-radius: 50%;
+        background-color: darksalmon;
+        border-color: blue;
+    }
+</STYle>
+
+<body>
+
+    <div class="container">
+        <img src="chuck.png" alt="img1">
+
+        <h1>Probando Chuck Norris.</h1>
+        <button type="button" class="btn btn-primary">ACTUALIZAR</button>
+        <!--crear boton-->
+
+        <H2></H2>
+    </div>
+
+    <!--primero se trae la libreria-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <!--luego se crea el script personal-->
+    <script>
+        const h2_nuevo = document.querySelector('h2')
+        const boton_recargar = document.querySelector('button')  //al recargar boton me traera datos nuevos
+        $.getJSON('https://api.chucknorris.io/jokes/random', function (datos) {  //me traigo la api de chuck norris
+            console.log(datos.value)
+            h2_nuevo.textContent = datos.value  //los datos nuevos se escribiran en h2 que estaba vacio
+        })
+        boton_recargar.addEventListener('click', function () { //al hacer click se recargan datos nuevos
+            location.reload();
+        })
+    </script>
+
+</body>
+
+</html>
